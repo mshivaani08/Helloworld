@@ -1,0 +1,92 @@
+import java.util.Scanner;
+
+public class LabPracticeLevel1 {
+
+    // 1. User Defined Method
+    public static int addNumbers(int firstNumber, int secondNumber) {
+        int sumResult = firstNumber + secondNumber;
+        return sumResult;
+    }
+
+    // 4. Recursive Method
+    public static int calculateFactorial(int number) {
+        if (number == 0 || number == 1) {
+            return 1;
+        }
+        return number * calculateFactorial(number - 1);
+    }
+
+    // 3. Dynamic Method
+    public static double calculateCircleArea(double radiusValue) {
+        double areaResult = Math.PI * Math.pow(radiusValue, 2);
+        return areaResult;
+    }
+
+    // 5. Static Method Example
+    public static void displayMessage(String messageText) {
+        System.out.println(messageText);
+    }
+
+    // Level 2 Example: Maximum of three numbers
+    public static int findMaximum(int num1, int num2, int num3) {
+        return Math.max(num1, Math.max(num2, num3));
+    }
+
+    // Level 3 Example: Power using recursion
+    public static int calculatePower(int baseNumber, int exponentValue) {
+        if (exponentValue == 0) {
+            return 1;
+        }
+        return baseNumber * calculatePower(baseNumber, exponentValue - 1);
+    }
+
+    public static void main(String[] args) {
+
+        Scanner inputScanner = new Scanner(System.in);
+
+        // User Inputs
+        int firstNumber, secondNumber, thirdNumber;
+        double radiusValue;
+
+        displayMessage("Enter first number:");
+        firstNumber = inputScanner.nextInt();
+
+        displayMessage("Enter second number:");
+        secondNumber = inputScanner.nextInt();
+
+        displayMessage("Enter third number:");
+        thirdNumber = inputScanner.nextInt();
+
+        displayMessage("Enter radius:");
+        radiusValue = inputScanner.nextDouble();
+
+        // 2. Using Methods Multiple Times
+        int sumResult = addNumbers(firstNumber, secondNumber);
+        int sumResultAgain = addNumbers(sumResult, thirdNumber);
+
+        // Outputs
+        displayMessage("Sum of first two numbers: " + sumResult);
+        displayMessage("Sum of all three numbers: " + sumResultAgain);
+
+        // Recursive factorial
+        int factorialResult = calculateFactorial(firstNumber);
+        displayMessage("Factorial of first number: " + factorialResult);
+
+        // Dynamic method (circle area)
+        double areaResult = calculateCircleArea(radiusValue);
+        displayMessage("Area of circle: " + areaResult);
+
+        // Java Standard Library + Math class
+        int maxValue = findMaximum(firstNumber, secondNumber, thirdNumber);
+        displayMessage("Maximum number: " + maxValue);
+
+        double squareRoot = Math.sqrt(firstNumber);
+        displayMessage("Square root of first number: " + squareRoot);
+
+        // Level 3 recursive power
+        int powerResult = calculatePower(firstNumber, secondNumber);
+        displayMessage("Power (first^second): " + powerResult);
+
+        inputScanner.close();
+    }
+}
